@@ -587,7 +587,8 @@ export class WSDL {
     nsURI = nsURI || defs.xmlns[nsPrefix];
     nsPrefix = nsPrefix === TNS_PREFIX ? '' : (nsPrefix + ':');
 
-    parts.push(['<', nsPrefix, name, '>'].join(''));
+    // parts.push(['<', nsPrefix, name, '>'].join(''));
+    parts.push(['<', name, '>'].join(''));
 
     for (const key in params) {
       if (!params.hasOwnProperty(key)) {
@@ -608,7 +609,8 @@ export class WSDL {
         parts.push(['</', prefixedKey, '>'].join(''));
       }
     }
-    parts.push(['</', nsPrefix, name, '>'].join(''));
+    // parts.push(['</', nsPrefix, name, '>'].join(''));
+    parts.push(['</', name, '>'].join(''));
     return parts.join('');
   }
 
